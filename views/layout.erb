@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This is my new Wiki app" />
+    <meta name="keywords" content="wiki, test app, blog"/>
+    <link rel="stylesheet" href="/style.css" type="text/css" />
+    <title>Stuart's Wiki application</title>
+  </head>
+  
+<body>
+<header>
+<div class="page_title">
+  <h1>Stuarts Wiki App</h1>
+  <h2> A Hearthstone fan page!</h2>
+</div>
+<div class="navbar">
+  <a href="/">Home</a>
+  <a href= "/strategy">Strategy</a>
+  <a href="/edit">Edit</a>
+  <a href="/trailer">Trailer</a>
+  <a href="https://eu.battle.net/account/download/?show=hearthstone&style=hearthstone&utm_term=hearthstone&utm_source=google&utm_medium=cpc&utm_content=29664934230&utm_campaign=MEC_427366470&gclid=Cj0KEQjwvve_BRDmg9Kt9ufO15EBEiQAKoc6qhazqkEtWN6BIXu2msxfHjY0pVWcZi-UCc0qgWjDkL4aAr_D8P8HAQ">Download</a>
+ <a href="/about">About</a>
+  <div class ="login">
+    <% if $credentials %>
+      <% if $credentials[0] != '' %>
+        Logged in as <a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a> 
+        <a href="/logout">Logout</a> 
+        <% if $credentials[0] == "Admin" %>
+          <a href="/admincontrols">Admin Controls</a>
+        <% end %>
+      <% else %>
+        <a href="/login">Login</a>
+      <% end %>
+    <% else %>
+      <a href="/login">Login</a>
+    <% end %>
+  </div>
+</div>
+</header>
+<div class="view_content">
+  <%= yield %>
+</div>
+<footer>
+  <p>Created by Stuart Melville</p>
+</footer>
+</div>
+</body>
+
+</html>
